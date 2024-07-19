@@ -42,7 +42,7 @@ theme <- create_theme(
   ),
   bs4dash_color(
     gray_900 = CB::cchmc_color(4)[[1]],
-    white = dht::degauss_colors(4)
+    white = "#E0E5E7"#dht::degauss_colors(4)
   )
 )
 
@@ -235,7 +235,7 @@ server <- function(input,output,session){
                   html = spin_3(),
                   color = transparent(.5))
 
-  dat <- read_csv('monthly_all_sources_14mar2024_.csv') |>
+  dat <- read_csv('monthly_all_sources_30_jun2024.csv') |>
     rowwise() |>
     mutate(charitable_percent_covered = sum(
       meal_percent_fsb_covered,
