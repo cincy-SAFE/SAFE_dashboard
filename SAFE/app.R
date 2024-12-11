@@ -235,7 +235,7 @@ server <- function(input,output,session){
                   html = spin_3(),
                   color = transparent(.5))
 
-  dat <- read_csv('monthly_all_sources_30_jun2024.csv') |>
+  dat <- read_csv('monthly_all_sources_10Dec2024.csv') |>
     rowwise() |>
     mutate(charitable_percent_covered = sum(
       meal_percent_fsb_covered,
@@ -266,6 +266,7 @@ server <- function(input,output,session){
                                                    "meal_percent_lasoupe_covered",
                                                    "meal_percent_whole_again_covered",
                                                    "meal_percent_cfs_covered",
+                                                   "meal_percent_library_covered",
                                                    "charitable_percent_covered"),
                             labels = c("Income",
                                        "SNAP",
@@ -274,6 +275,7 @@ server <- function(input,output,session){
                                        "La Soupe",
                                        "Whole Again",
                                        "Childhood Food Solutions",
+                                       "Library",
                                        "Charitable"))
 
     temp_d
@@ -285,7 +287,8 @@ server <- function(input,output,session){
       filter(!source %in% c("Free Store Foodbank",
                             "La Soupe",
                             "Whole Again",
-                            "Childhood Food Solutions"))
+                            "Childhood Food Solutions",
+                            "Library"))
 
     meal_cover_plot <- ggplot(d) +
       geom_hline(yintercept = 1, linewidth = .5, alpha = .5) +
