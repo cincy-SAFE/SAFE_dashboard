@@ -235,7 +235,7 @@ server <- function(input,output,session){
                   html = spin_3(),
                   color = transparent(.5))
 
-  dat <- read_csv('monthly_all_sources_10Dec2024.csv') |>
+  dat <- read_csv('monthly_all_sources_20feb2025.csv') |>
     rowwise() |>
     mutate(charitable_percent_covered = sum(
       meal_percent_fsb_covered,
